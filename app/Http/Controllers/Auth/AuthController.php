@@ -2,7 +2,7 @@
 
 namespace UtnianosCore\Http\Controllers\Auth;
 
-use UtnianosCore\User;
+use UtnianosCore\Usuario;
 use Validator;
 use UtnianosCore\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -29,7 +29,7 @@ class AuthController extends Controller
      * @var string
      */
     protected $redirectTo = '/home';
-
+    protected $username = 'usuario';
     /**
      * Create a new authentication controller instance.
      *
@@ -49,8 +49,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'usuario' => 'required|max:255|unique:usuarios',
             'password' => 'required|confirmed|min:6',
         ]);
     }
@@ -63,9 +62,8 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+        return Usuario::create([
+            'usuario' => $data['usuario'],
             'password' => bcrypt($data['password']),
         ]);
     }
