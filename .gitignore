@@ -1,6 +1,13 @@
+#configuracion de cada entorno
+.env
+#directorios utilizados para librerias
 /vendor
 /node_modules
 Homestead.yaml
 Homestead.json
-.env
+#directorios utilizados por bower y gulp para compilar las dependencias del frontend
+/resources/assets
+/public/build
+/public/assets
+#carpetas especificas de la IDE
 /.idea
