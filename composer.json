@@ -23,7 +23,7 @@
             "database"
         ],
         "psr-4": {
-            "UtnianosCore\\": "app/"
+            "Utnianos\\Core\\": "app/"
         }
     },
     "autoload-dev": {

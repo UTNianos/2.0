@@ -1,10 +1,10 @@
 <?php
 
-namespace UtnianosCore\Http\Controllers\Auth;
+namespace Utnianos\Core\Http\Controllers\Auth;
 
-use UtnianosCore\Usuario;
+use Utnianos\Core\Usuario;
 use Validator;
-use UtnianosCore\Http\Controllers\Controller;
+use Utnianos\Core\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

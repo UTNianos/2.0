@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => UtnianosCore\User::class,
+        'model'  => Utnianos\Core\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

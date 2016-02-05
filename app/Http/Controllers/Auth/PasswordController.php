@@ -1,8 +1,8 @@
 <?php
 
-namespace UtnianosCore\Http\Controllers\Auth;
+namespace Utnianos\Core\Http\Controllers\Auth;
 
-use UtnianosCore\Http\Controllers\Controller;
+use Utnianos\Core\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
 class PasswordController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Http\Controllers;
+namespace Utnianos\Core\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

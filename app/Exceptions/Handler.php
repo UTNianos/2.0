@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Exceptions;
+namespace Utnianos\Core\Exceptions;
 
 use Exception;
 use Illuminate\Auth\Access\AuthorizationException;

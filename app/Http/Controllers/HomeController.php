@@ -1,10 +1,10 @@
 <?php
 
-namespace UtnianosCore\Http\Controllers;
+namespace Utnianos\Core\Http\Controllers;
 
-use UtnianosCore\Http\Requests;
+use Utnianos\Core\Http\Requests;
 use Illuminate\Http\Request;
-use UtnianosCore\Http\Controllers\Controller;
+use Utnianos\Core\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {

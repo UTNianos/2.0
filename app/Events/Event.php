@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Events;
+namespace Utnianos\Core\Events;
 
 abstract class Event
 {

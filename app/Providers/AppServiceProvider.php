@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Providers;
+namespace Utnianos\Core\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

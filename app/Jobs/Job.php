@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Jobs;
+namespace Utnianos\Core\Jobs;
 
 use Illuminate\Bus\Queueable;
 

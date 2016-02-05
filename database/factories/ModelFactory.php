@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(UtnianosCore\User::class, function (Faker\Generator $faker) {
+$factory->define(Utnianos\Core\User::class, function (Faker\Generator $faker) {
     return [
         'usuario' => $faker->name,
         'email' => $faker->email,

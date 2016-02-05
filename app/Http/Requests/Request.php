@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Http\Requests;
+namespace Utnianos\Core\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

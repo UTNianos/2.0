@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Providers;
+namespace Utnianos\Core\Providers;
 
 use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'UtnianosCore\Events\SomeEvent' => [
-            'UtnianosCore\Listeners\EventListener',
+        'Utnianos\Core\Events\SomeEvent' => [
+            'Utnianos\Core\Listeners\EventListener',
         ],
     ];
 

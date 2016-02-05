@@ -1,11 +1,11 @@
 <?php
 
-namespace UtnianosCore;
+namespace Utnianos\Core;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
- * UtnianosCore\Usuario
+ * Utnianos\Core\Usuario
  *
  * @property integer $id
  * @property string $usuario

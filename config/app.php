@@ -151,10 +151,10 @@ return [
         /*
          * Application Service Providers...
          */
-        UtnianosCore\Providers\AppServiceProvider::class,
-        UtnianosCore\Providers\AuthServiceProvider::class,
-        UtnianosCore\Providers\EventServiceProvider::class,
-        UtnianosCore\Providers\RouteServiceProvider::class,
+        Utnianos\Core\Providers\AppServiceProvider::class,
+        Utnianos\Core\Providers\AuthServiceProvider::class,
+        Utnianos\Core\Providers\EventServiceProvider::class,
+        Utnianos\Core\Providers\RouteServiceProvider::class,
 
         //ide helper
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,

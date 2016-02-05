@@ -5,18 +5,18 @@
  * Time: 19:09
  */
 
-namespace UtnianosCore\Models;
+namespace Utnianos\Core\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * UtnianosCore\Models\Carrera
+ * Utnianos\Core\Models\Carrera
  *
  * @property integer $id
  * @property string $nombre
- * @property-read \Illuminate\Database\Eloquent\Collection|\UtnianosCore\Models\Carrera[] $facultades
- * @property-read \Illuminate\Database\Eloquent\Collection|\UtnianosCore\Models\Plan[] $planes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Carrera[] $facultades
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
  */
 class Carrera extends Model
 {
@@ -24,11 +24,11 @@ class Carrera extends Model
 
     public function facultades()
     {
-        return $this->belongsToMany('UtnianosCore\Models\Carrera');
+        return $this->belongsToMany('Utnianos\Core\Models\Carrera');
     }
 
     public function planes()
     {
-        return $this->hasMany('UtnianosCore\Models\Plan');
+        return $this->hasMany('Utnianos\Core\Models\Plan');
     }
 }

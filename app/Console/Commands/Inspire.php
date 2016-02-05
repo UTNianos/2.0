@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Console\Commands;
+namespace Utnianos\Core\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

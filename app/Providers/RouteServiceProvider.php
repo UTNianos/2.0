@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Providers;
+namespace Utnianos\Core\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'UtnianosCore\Http\Controllers';
+    protected $namespace = 'Utnianos\Core\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

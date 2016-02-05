@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Http\Middleware;
+namespace Utnianos\Core\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

@@ -5,14 +5,14 @@
  * Time: 19:19
  */
 
-namespace UtnianosCore\Models;
+namespace Utnianos\Core\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * UtnianosCore\Models\Correlativa
+ * Utnianos\Core\Models\Correlativa
  *
  * @property integer $id
  * @property integer $materia_id
@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $plan_id
  * @property string $tipo_materia
  * @property string $tipo_requerimiento
- * @property-read \UtnianosCore\Models\Materia $materia
- * @property-read \UtnianosCore\Models\Materia $requerimiento
- * @property-read \UtnianosCore\Models\Plan $plan
+ * @property-read \Utnianos\Core\Models\Materia $materia
+ * @property-read \Utnianos\Core\Models\Materia $requerimiento
+ * @property-read \Utnianos\Core\Models\Plan $plan
  */
 class Correlativa extends Model
 {
@@ -30,17 +30,17 @@ class Correlativa extends Model
 
     public function materia()
     {
-        return $this->belongsTo('UtnianosCore\Models\Materia');
+        return $this->belongsTo('Utnianos\Core\Models\Materia');
     }
 
     public function requerimiento()
     {
-        return $this->belongsTo('UtnianosCore\Models\Materia','requerimiento_id');
+        return $this->belongsTo('Utnianos\Core\Models\Materia','requerimiento_id');
     }
 
     public function plan()
     {
-        return $this->belongsTo('UtnianosCore\Models\Plan');
+        return $this->belongsTo('Utnianos\Core\Models\Plan');
     }
 
 }

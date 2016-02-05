@@ -1,6 +1,6 @@
 <?php
 
-namespace UtnianosCore\Providers;
+namespace Utnianos\Core\Providers;
 
 use Illuminate\Contracts\Auth\Access\Gate as GateContract;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'UtnianosCore\Model' => 'UtnianosCore\Policies\ModelPolicy',
+        'Utnianos\Core\Model' => 'Utnianos\Core\Policies\ModelPolicy',
     ];
 
     /**

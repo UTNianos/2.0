@@ -5,22 +5,22 @@
  * Time: 19:19
  */
 
-namespace UtnianosCore\Models;
+namespace Utnianos\Core\Models;
 
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * UtnianosCore\Models\Materia
+ * Utnianos\Core\Models\Materia
  *
  * @property integer $id
  * @property string $nombre
  * @property string $descripcion
  * @property string $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\UtnianosCore\Models\Plan[] $planes
- * @property-read \Illuminate\Database\Eloquent\Collection|\UtnianosCore\Models\Correlativa[] $correlativas
- * @property-read \Illuminate\Database\Eloquent\Collection|\UtnianosCore\Models\Correlativa[] $habilita
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Correlativa[] $correlativas
+ * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Correlativa[] $habilita
  */
 class Materia extends Model
 {
@@ -30,16 +30,16 @@ class Materia extends Model
 
     public function planes()
     {
-        return $this->belongsToMany('UtnianosCore\Models\Plan')->withPivot('año', 'electiva');
+        return $this->belongsToMany('Utnianos\Core\Models\Plan')->withPivot('año', 'electiva');
     }
 
     public function correlativas()
     {
-        return $this->hasMany('UtnianosCore\Models\Correlativa');
+        return $this->hasMany('Utnianos\Core\Models\Correlativa');
     }
 
     public function habilita()
     {
-        return $this->hasMany('UtnianosCore\Models\Correlativa','requerimiento_id');
+        return $this->hasMany('Utnianos\Core\Models\Correlativa','requerimiento_id');
     }
 }
