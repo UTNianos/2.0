@@ -10,6 +10,7 @@
     <link rel="icon" href="{!! asset('img/favicon.png') !!}" type="image/png" />
     <link rel="shortcut icon" href="{!! asset('img/favicon.ico') !!}" />
 
+
     <link rel="stylesheet" href="{{ elixir('assets/css/styles.css') }}">
 
 </head>
@@ -66,6 +67,6 @@
     @yield('content')
 
     <!-- JavaScripts -->
-    <script src="{{ elixir('assets/js/app.js') }}"></script>
+    <script src="{{ elixir('assets/js/main.js') }}"></script>
 </body>
 </html>

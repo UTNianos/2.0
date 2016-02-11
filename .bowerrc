@@ -1,6 +1,3 @@
 {
-  "directory": "vendor/bower_dl",
-  "scripts": {
-    "postinstall": "gulp copyfiles"
-  }
+  "directory": "vendor/bower_dl"
 }

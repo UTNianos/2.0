@@ -1,25 +1,13 @@
-var gulp = require('gulp');
-var elixir = require('laravel-elixir');
+var gulp    = require('gulp'),
+    elixir  = require('laravel-elixir'),
+    bowerFiles = require('bower-files')(),
+    del = require('del');
 
-/**
- * Copy any needed files.
- *
- * Do a 'gulp copyfiles' after bower updates
- */
-gulp.task("copyfiles", function () {
 
-    gulp.src("vendor/bower_dl/jquery/dist/jquery.js")
-        .pipe(gulp.dest("resources/assets/js/"));
 
-    gulp.src("vendor/bower_dl/bootstrap/less/**")
-        .pipe(gulp.dest("resources/assets/less/bootstrap"));
-
-    gulp.src("vendor/bower_dl/bootstrap/dist/js/bootstrap.js")
-        .pipe(gulp.dest("resources/assets/js/"));
-
-    gulp.src("vendor/bower_dl/bootstrap/dist/fonts/**")
-        .pipe(gulp.dest("public/assets/fonts"));
-
+elixir.config.js.browserify.transformers.push({
+    name: 'debowerify',
+    options: {}
 });
 
 /**
@@ -28,16 +16,34 @@ gulp.task("copyfiles", function () {
 elixir(function (mix) {
 
     // Combine scripts
-    mix.scripts([
-            'js/jquery.js',
-            'js/bootstrap.js'
-        ],
-        'public/assets/js/app.js',
-        'resources/assets'
-    );
+/*
+    mix.browserify(bowerFiles.ext('js').relative('./resources/assets/js/').files,
+        'public/assets/js/vendor.js'
+        );
+*/
+
+    mix.browserify('main.js', 'public/assets/js/main.js');
+    //mix.browserify('main.js', 'public/assets/js/admin.js');
 
     // Compile Less
+    // bootstrap lo compilo aparte con los estilos de la aplicacion, asi podemos customizarlo
+    mix.less(bowerFiles.ext(['css', 'less'])
+            .match('!**/bootstrap/**')
+            .relative('./resources/assets/less/')
+            .files,
+        'public/assets/css/vendor.css');
+
     mix.less('styles.less', 'public/assets/css/styles.css');
 
-    mix.version(['assets/css/styles.css', 'assets/js/app.js']);
+    gulp.src(bowerFiles.ext(['eot', 'woff', 'ttf', 'svg']).files)
+        .pipe(gulp.dest("public/assets/fonts"));
+
+    mix.version(['assets/css/styles.css', 'assets/css/vendor.css', 'assets/js/*.js']);
+});
+
+gulp.task('clean', function () {
+    return del([
+        'public/assets/**/*',
+        'public/build/**/*'
+    ]);
 });
