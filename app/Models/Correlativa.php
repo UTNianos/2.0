@@ -19,14 +19,20 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $requerimiento_id
  * @property integer $plan_id
  * @property string $tipo_materia
- * @property string $tipo_requerimiento
+ * @property integer $tipo_requerimiento
  * @property-read \Utnianos\Core\Models\Materia $materia
  * @property-read \Utnianos\Core\Models\Materia $requerimiento
  * @property-read \Utnianos\Core\Models\Plan $plan
  */
 class Correlativa extends Model
 {
+    const CURSADA_CURSADA = 0;
+    const CURSADA_FINAL = 1;
+    const FINAL_FINAL = 2;
+    const FINAL_CURSADA = 3;
+
     public $timestamps = false;
+
 
     public function materia()
     {

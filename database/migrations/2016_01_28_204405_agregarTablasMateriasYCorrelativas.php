@@ -16,13 +16,15 @@ class AgregarTablasMateriasYCorrelativas extends Migration
         Schema::create('materias',function(Blueprint $table){
             $table->increments('id');
             $table->string('nombre');
+            $table->string('abreviatura')->nullable();
+            $table->boolean('basica');
 
             $table->text('descripcion');
 
             $table->softDeletes();
         });
 
-        Schema::create('materias_planes',function(Blueprint $table){
+        Schema::create('materia_plan',function(Blueprint $table){
             $table->increments('id');
 
             $table->integer('plan_id')->unsigned();
@@ -47,8 +49,7 @@ class AgregarTablasMateriasYCorrelativas extends Migration
             $table->integer('plan_id')->unsigned();
             $table->foreign('plan_id')->references('id')->on('planes');
 
-            $table->char('tipo_materia',1);
-            $table->char('tipo_requerimiento',1);
+            $table->integer('tipo_requerimiento');
         });
     }
 
@@ -60,7 +61,7 @@ class AgregarTablasMateriasYCorrelativas extends Migration
     public function down()
     {
         Schema::drop('correlativas');
-        Schema::drop('materias_planes');
+        Schema::drop('materia_plan');
         Schema::drop('materias');
     }
 }

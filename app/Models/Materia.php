@@ -21,6 +21,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Correlativa[] $correlativas
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Correlativa[] $habilita
+ * @property string $abreviatura
+ * @property boolean $basica
  */
 class Materia extends Model
 {

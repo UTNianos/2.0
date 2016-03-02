@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $nombre
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Carrera[] $facultades
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
+ * @property string $abreviatura
  */
 class Carrera extends Model
 {
@@ -24,7 +25,7 @@ class Carrera extends Model
 
     public function facultades()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Carrera');
+        return $this->belongsToMany('Utnianos\Core\Models\Facultad');
     }
 
     public function planes()

@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property integer $id
  * @property string $nombre
+ * @property string $abreviatura
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Carrera[] $carreras
  */
 class Facultad extends Model
