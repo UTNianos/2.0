@@ -134,6 +134,7 @@ class MigrarCarrerasUtnianos extends Command
                 })->toArray();
 
             $carreraNueva->facultades()->sync($idsFacultades);
+            $carreraNueva->save();
             $carrerasTrans[ $carrera->IdCarrera ] = $carreraNueva->id;
             $bar->advance();
         }
@@ -190,15 +191,16 @@ class MigrarCarrerasUtnianos extends Command
                 continue;
             }
             $p = [];
-            $materiasPlanes[$materia->IdMateria]->each(function($materiaPlan) use($p){
+            foreach($materiasPlanes[$materia->IdMateria] as $materiaPlan)
+            {
                 if(!isset($planes[ $materiaPlan->IdPlan ])) //el plan de esta relacion no existe
                     return;
                 $p[ $planes[ $materiaPlan->IdPlan ] ] = ['año' => $materiaPlan->Año,
-                                                        'electiva' => $materiaPlan->Electiva];
-
-            });
+                    'electiva' => $materiaPlan->Electiva];
+            }
 
             $materiaNueva->planes()->sync($p);
+            $materiaNueva->save();
 
             $materiasTrans[ $materia->IdMateria ] = $materiaNueva->id;
 

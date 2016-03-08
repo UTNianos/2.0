@@ -8,7 +8,7 @@
 namespace Utnianos\Core\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
+use Eloquent;
 
 /**
  * Utnianos\Core\Models\Carrera
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
  * @property string $abreviatura
  */
-class Carrera extends Model
+class Carrera extends Eloquent
 {
     public $timestamps = false;
 
