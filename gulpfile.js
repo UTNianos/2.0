@@ -1,7 +1,12 @@
 var gulp    = require('gulp'),
     elixir  = require('laravel-elixir'),
     bowerFiles = require('bower-files')(),
-    del = require('del');
+    del = require('del'),
+    fs = require('fs');
+
+var jss   = fs.readdirSync('resources/assets/js/'),
+    jsFiles  = jss.map(function (page) { return 'resources/assets/js/' + page; }),
+    outputs = jss.map(function (page) { return 'public/assets/js/' + page; });
 
 
 
@@ -9,24 +14,24 @@ elixir.config.js.browserify.transformers.push({
     name: 'debowerify',
     options: {}
 });
+elixir.config.js.browserify.plugins.push(
+    {
+        name: 'factor-bundle',
+        options: {
+            outputs: outputs
+        }
+    }
+);
 
 /**
  * Default gulp is to run this elixir stuff
  */
 elixir(function (mix) {
 
-    // Combine scripts
-/*
-    mix.browserify(bowerFiles.ext('js').relative('./resources/assets/js/').files,
-        'public/assets/js/vendor.js'
-        );
-*/
-
-    mix.browserify('main.js', 'public/assets/js/main.js');
+    mix.browserify(jsFiles, 'public/assets/js/common.js');
     //mix.browserify('main.js', 'public/assets/js/admin.js');
 
     // Compile Less
-    // bootstrap lo compilo aparte con los estilos de la aplicacion, asi podemos customizarlo
     mix.less(bowerFiles.ext(['css', 'less'])
             .match('!**/bootstrap/**')
             .relative('./resources/assets/less/')
@@ -39,6 +44,8 @@ elixir(function (mix) {
         .pipe(gulp.dest("public/assets/fonts"));
 
     mix.version(['assets/css/styles.css', 'assets/css/vendor.css', 'assets/js/*.js']);
+    if (elixir.config.production) {
+    }
 });
 
 gulp.task('clean', function () {

@@ -11,6 +11,9 @@
   "dependencies": {
     "jquery": "^2.2.0",
     "bootstrap": "^3.3.6",
-    "knockout": "^3.4.0"
+    "knockout": "^3.4.0",
+    "knockstrap": "^1.3.2",
+    "chosen": "^1.5.1",
+    "chosen-bootstrap": "^1.1.0"
   }
 }
