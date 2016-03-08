@@ -6,8 +6,8 @@
 Homestead.yaml
 Homestead.json
 #directorios utilizados por bower y gulp para compilar las dependencias del frontend
-/resources/assets
 /public/build
 /public/assets
+/public/assets/js
 #carpetas especificas de la IDE
 /.idea

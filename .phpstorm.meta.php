@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2016-01-28.
+    * Generated on 2016-03-08.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -16,9 +16,9 @@ namespace PHPSTORM_META {
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
-            'Illuminate\Contracts\Http\Kernel' instanceof \UtnianosCore\Http\Kernel,
-            'Illuminate\Contracts\Console\Kernel' instanceof \UtnianosCore\Console\Kernel,
-            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \UtnianosCore\Exceptions\Handler,
+            'Illuminate\Contracts\Http\Kernel' instanceof \Utnianos\Core\Http\Kernel,
+            'Illuminate\Contracts\Console\Kernel' instanceof \Utnianos\Core\Console\Kernel,
+            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \Utnianos\Core\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\SessionGuard,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
@@ -95,6 +95,8 @@ namespace PHPSTORM_META {
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
             'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -115,6 +117,8 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -123,9 +127,9 @@ namespace PHPSTORM_META {
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
-            'Illuminate\Contracts\Http\Kernel' instanceof \UtnianosCore\Http\Kernel,
-            'Illuminate\Contracts\Console\Kernel' instanceof \UtnianosCore\Console\Kernel,
-            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \UtnianosCore\Exceptions\Handler,
+            'Illuminate\Contracts\Http\Kernel' instanceof \Utnianos\Core\Http\Kernel,
+            'Illuminate\Contracts\Console\Kernel' instanceof \Utnianos\Core\Console\Kernel,
+            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \Utnianos\Core\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\SessionGuard,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
@@ -202,6 +206,8 @@ namespace PHPSTORM_META {
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
             'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -222,6 +228,8 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         \App::make('') => [
             '' == '@',
@@ -230,9 +238,9 @@ namespace PHPSTORM_META {
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
-            'Illuminate\Contracts\Http\Kernel' instanceof \UtnianosCore\Http\Kernel,
-            'Illuminate\Contracts\Console\Kernel' instanceof \UtnianosCore\Console\Kernel,
-            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \UtnianosCore\Exceptions\Handler,
+            'Illuminate\Contracts\Http\Kernel' instanceof \Utnianos\Core\Http\Kernel,
+            'Illuminate\Contracts\Console\Kernel' instanceof \Utnianos\Core\Console\Kernel,
+            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \Utnianos\Core\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\SessionGuard,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
@@ -309,6 +317,8 @@ namespace PHPSTORM_META {
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
             'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -329,6 +339,8 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         app('') => [
             '' == '@',
@@ -337,9 +349,9 @@ namespace PHPSTORM_META {
             'url' instanceof \Illuminate\Routing\UrlGenerator,
             'redirect' instanceof \Illuminate\Routing\Redirector,
             'Illuminate\Contracts\Routing\ResponseFactory' instanceof \Illuminate\Routing\ResponseFactory,
-            'Illuminate\Contracts\Http\Kernel' instanceof \UtnianosCore\Http\Kernel,
-            'Illuminate\Contracts\Console\Kernel' instanceof \UtnianosCore\Console\Kernel,
-            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \UtnianosCore\Exceptions\Handler,
+            'Illuminate\Contracts\Http\Kernel' instanceof \Utnianos\Core\Http\Kernel,
+            'Illuminate\Contracts\Console\Kernel' instanceof \Utnianos\Core\Console\Kernel,
+            'Illuminate\Contracts\Debug\ExceptionHandler' instanceof \Utnianos\Core\Exceptions\Handler,
             'auth' instanceof \Illuminate\Auth\AuthManager,
             'auth.driver' instanceof \Illuminate\Auth\SessionGuard,
             'Illuminate\Contracts\Auth\Access\Gate' instanceof \Illuminate\Auth\Access\Gate,
@@ -416,6 +428,8 @@ namespace PHPSTORM_META {
             'command.queue.forget' instanceof \Illuminate\Queue\Console\ForgetFailedCommand,
             'command.queue.flush' instanceof \Illuminate\Queue\Console\FlushFailedCommand,
             'hash' instanceof \Illuminate\Hashing\BcryptHasher,
+            'swift.transport' instanceof \Illuminate\Mail\TransportManager,
+            'swift.mailer' instanceof \Swift_Mailer,
             'mailer' instanceof \Illuminate\Mail\Mailer,
             'Illuminate\Contracts\Pipeline\Hub' instanceof \Illuminate\Pipeline\Hub,
             'queue' instanceof \Illuminate\Queue\QueueManager,
@@ -436,6 +450,8 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
     ];
 }
