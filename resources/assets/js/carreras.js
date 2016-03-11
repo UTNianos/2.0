@@ -1,10 +1,7 @@
-window.$ = window.jQuery = require('jquery');
-var bootstrap = require('bootstrap'),
-    ko = require('knockout');
+(function () {
+    'use strict';
+    window.$ = window.jQuery = require('jquery');
+    var bootstrap = require('bootstrap');
 
-// Here's my data model
-var ViewModel = function() {
-    
-};
-
-ko.applyBindings(new ViewModel());
+    $('#planes').tab();
+}());
