@@ -19,7 +19,7 @@ trait Trackeable
     /**
      * genera una funcion que toma como parametro un trackeable y al ejecutarse le asocia a ese objeto
      * el usuario actualmente logueado en $relacion
-     * @param type $relacion
+     * @param string $relacion
      * @return Closure
      */
     public static function asociarUsuarioLogueado($relacion)

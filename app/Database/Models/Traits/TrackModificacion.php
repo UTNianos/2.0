@@ -12,12 +12,12 @@ trait TrackModificacion
     
     public function creador()
     {
-        return $this->belongsTo('Utnianos\Core\Usuarios\User','creado_por');
+        return $this->belongsTo('Utnianos\Core\Usuario','creado_por');
     }
     
     public function editadoPor()
     {
-        return $this->belongsTo('Utnianos\Core\Usuarios\User','modificado_por');
+        return $this->belongsTo('Utnianos\Core\Usuario','modificado_por');
     }
     
     public static function bootTrackModificacion()
