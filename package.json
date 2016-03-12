@@ -6,5 +6,8 @@
     "del": "^2.2.0",
     "factor-bundle": "^2.5.0",
     "gulp": "^3.9.1"
+  },
+  "dependencies": {
+    "laravel-elixir": "^5.0.0"
   }
 }
