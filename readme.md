@@ -44,7 +44,8 @@ gulp
 
 
 #con esto deberia estar todo seteado. testeamos y ponemos a correr el servidor
-phpunit 
+phpunit
+php artisan key:generate
 php artisan serve
 
 ```
