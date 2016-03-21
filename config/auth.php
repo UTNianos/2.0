@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => UtnianosCore\Usuario::class,
+            'model' => Utnianos\Core\Usuario::class,
         ],
 
         // 'users' => [
