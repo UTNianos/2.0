@@ -32,4 +32,9 @@ class Carrera extends Eloquent
     {
         return $this->hasMany('Utnianos\Core\Models\Plan');
     }
+
+    public function descripcion()
+    {
+        return $this->morphOne('Utnianos\Core\Models\Documento','duenio');
+    }
 }
