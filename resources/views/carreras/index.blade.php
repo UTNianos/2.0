@@ -7,6 +7,12 @@
             <div class="page-header">
                 <h1>{{ $carrera->nombre }}</h1>
             </div>
+            <editor>
+                @if($carrera->descripcion)
+                    {!! $carrera->descripcion->contenido !!}
+                @endif
+                daisdkahdkadssdhb <p>test</p>
+            </editor>
             <ul class="nav nav-tabs" role="tablist">
                 @foreach($carrera->planes as $plan)
                     <li role="presentation"><a href="#plan-{{ $plan->id }}" aria-controls="plan-{{ $plan->id }}" role="tab" data-toggle="tab">{{ $plan->nombre }}</a></li>
