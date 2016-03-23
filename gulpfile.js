@@ -4,8 +4,8 @@ var gulp    = require('gulp'),
     del = require('del'),
     fs = require('fs');
 
-var jss   = fs.readdirSync('resources/assets/js/'),
-    jsFiles  = jss.map(function (page) { return 'resources/assets/js/' + page; }),
+var jss   = fs.readdirSync('resources/assets/js/entrypoints/'),
+    jsFiles  = jss.map(function (page) { return 'resources/assets/js/entrypoints/' + page; }),
     outputs = jss.map(function (page) { return 'public/assets/js/' + page; });
 
 
@@ -43,8 +43,14 @@ elixir(function (mix) {
     gulp.src(bowerFiles.ext(['eot', 'woff', 'ttf', 'svg']).files)
         .pipe(gulp.dest("public/assets/fonts"));
 
-    mix.version(['assets/css/styles.css', 'assets/css/vendor.css', 'assets/js/*.js']);
     if (elixir.config.production) {
+        mix.version(['assets/css/styles.css', 'assets/css/vendor.css', 'assets/js/*.js']);
+    }
+    else {
+        mix.browserSync({
+            proxy: 'localhost:8000',
+            online: false
+        });
     }
 });
 
