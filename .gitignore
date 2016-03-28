@@ -11,3 +11,4 @@ Homestead.json
 /public/assets/js
 #carpetas especificas de la IDE
 /.idea
+/nbproject
