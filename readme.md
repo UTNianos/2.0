@@ -30,7 +30,8 @@ composer install
 #y editamos los parametros de nuestra maquina
 cp .env.example .env
 #editar .env y reemplazar los datos de la conexion a la base de datos
-
+#clave para la encripcion
+php artisan key:generate
 #ahora hay que correr las migraciones para crear la estructura de la base de datos
 php artisan migrate
 
@@ -45,7 +46,7 @@ gulp
 
 #con esto deberia estar todo seteado. testeamos y ponemos a correr el servidor
 phpunit
-php artisan key:generate
+
 php artisan serve
 
 ```
