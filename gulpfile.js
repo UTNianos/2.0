@@ -22,6 +22,9 @@ elixir.config.js.browserify.plugins.push(
         }
     }
 );
+elixir.config.css.less.pluginOptions = {
+    plugins: [require('less-plugin-glob')]
+};
 
 /**
  * Default gulp is to run this elixir stuff
@@ -60,6 +63,6 @@ gulp.task('clean', function () {
         'public/assets/**/*',
         '!public/assets',
         '!public/assets/js',
-        '!public/assets/js/.gitkeep',
+        '!public/assets/js/.gitkeep'
     ]);
 });
