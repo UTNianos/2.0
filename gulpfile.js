@@ -14,14 +14,13 @@ elixir.config.js.browserify.transformers.push({
     name: 'debowerify',
     options: {}
 });
-elixir.config.js.browserify.plugins.push(
-    {
+elixir.config.js.browserify.plugins.push({
         name: 'factor-bundle',
         options: {
             outputs: outputs
         }
-    }
-);
+});
+
 elixir.config.css.less.pluginOptions = {
     plugins: [require('less-plugin-glob')]
 };
@@ -30,7 +29,7 @@ elixir.config.css.less.pluginOptions = {
  * Default gulp is to run this elixir stuff
  */
 elixir(function (mix) {
-
+    'use strict'
     mix.browserify(jsFiles, 'public/assets/js/common.js');
     //mix.browserify('main.js', 'public/assets/js/admin.js');
 
@@ -41,7 +40,7 @@ elixir(function (mix) {
             .files,
         'public/assets/css/vendor.css');
 
-    mix.less('styles.less', 'public/assets/css/styles.css');
+    mix.less(['styles.less', "../js/ko/**/*.less"], 'public/assets/css/styles.css');
 
     gulp.src(bowerFiles.ext(['eot', 'woff', 'ttf', 'svg']).files)
         .pipe(gulp.dest("public/assets/fonts"));

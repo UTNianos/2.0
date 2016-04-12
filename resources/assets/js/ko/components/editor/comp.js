@@ -11,14 +11,6 @@ function ViewModel(data) {
 }
 
 module.exports = {
-    viewModel: {
-        createViewModel: function(params, componentInfo) {
-            console.log(componentInfo.templateNodes);
-            if(!params.contenido) {
-                params.contenido = componentInfo.templateNodes[0];
-            }
-            return new ViewModel(params);
-        }
-    } ,
+    viewModel:  ViewModel,
     template: template
 };

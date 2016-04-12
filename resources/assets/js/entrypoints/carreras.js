@@ -4,8 +4,8 @@
     var bootstrap = require('bootstrap'),
         ko = require('../ko/ko.js'),
         viewModel = {};
-
-    ko.applyBindings(viewModel);
-
-    $('#planes').tab();
+    $.ready(function(){
+        ko.applyBindings(viewModel);
+        $('#planes').tab();
+    });
 }());

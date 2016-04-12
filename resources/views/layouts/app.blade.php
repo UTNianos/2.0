@@ -69,9 +69,7 @@
 
     <!-- JavaScripts -->
     <script src="{{ elixir('assets/js/common.js') }}"></script>
-    <script src="{{ elixir('assets/js/index.js') }}"></script>
-    @if(isset($jsFile) && !(0 >= strpos($jsFile, "index")))
-        <script src="{{ elixir('assets/js/'.$jsFile) }}"></script>
-    @endif
+    <script src="{{ elixir('assets/js/'.$jsFile) }}"></script>
+
 </body>
 </html>
