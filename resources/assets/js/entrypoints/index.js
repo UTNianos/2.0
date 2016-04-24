@@ -1,11 +1,9 @@
-(function () {
-    'use strict';
+import 'jquery'
+import 'bootstrap'
+import 'chosen'
+import '../../less/variables.less'
 
-    var $ = window.$ = window.jQuery = require('jquery');
-    var bootstrap = require('bootstrap'),
-        chosen = require('chosen');
 
-    $(document).ready(function () {
-        $('#carrera').chosen();
-    });
-}());
+$(document).ready(function () {
+    $('#carrera').chosen();
+});
