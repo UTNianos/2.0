@@ -1,7 +1,7 @@
 import 'jquery'
 import 'bootstrap'
 import 'chosen'
-import '../../less/variables.less'
+// import '../../less/variables.less'
 
 
 $(document).ready(function () {

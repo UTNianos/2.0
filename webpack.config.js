@@ -4,10 +4,13 @@ var BowerWebpackPlugin = require('bower-webpack-plugin');
 
 
 module.exports = {
-    entry:  './resources/assets/js/entrypoints',
+    entry:  {
+        index: './resources/assets/js/entrypoints/index.js',
+        carreras: './resources/assets/js/entrypoints/carreras.js',
+    },
     output: {
-        path:     'public/assets/js',
-        filename: 'bundle.js',
+        path:     'public/assets',
+        filename: '[name].js',
         publicPath: 'public/',
     },
     plugins: [
@@ -21,7 +24,7 @@ module.exports = {
         ),
         new ExtractPlugin('bundle.css'),
         new BowerWebpackPlugin({
-            excludes: /.*\.(scss)/
+            excludes: /.*\.(scss)/,
         }),
         new webpack.ProvidePlugin({
             $:      "jquery",
