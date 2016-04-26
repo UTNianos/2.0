@@ -1,5 +1,9 @@
 {
   "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --progress --host 0.0.0.0 --port 3000 --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-loader": "^6.2.4",
@@ -19,7 +23,8 @@
     "node-less": "^1.0.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.13.0"
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
     "laravel-elixir": "^5.0.0"

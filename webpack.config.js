@@ -1,7 +1,7 @@
 var webpack = require('webpack');
 var ExtractPlugin = require('extract-text-webpack-plugin');
 var BowerWebpackPlugin = require('bower-webpack-plugin');
-
+var path = require("path");
 
 module.exports = {
     entry:  {
@@ -9,9 +9,9 @@ module.exports = {
         carreras: './resources/assets/js/entrypoints/carreras.js',
     },
     output: {
-        path:     'public/assets',
+        path: path.resolve('public/assets/'),
         filename: '[name].js',
-        publicPath: 'public/',
+        publicPath: 'http://localhost:3000/assets/',
     },
     plugins: [
         new webpack.optimize.CommonsChunkPlugin({
@@ -63,5 +63,12 @@ module.exports = {
                 loader: "file-loader?name=[name].[ext]"
             }
         ],
+    },
+    devServer: {
+        contentBase: 'http://localhost:8000',
+        hot: true,
+        proxy: {
+            "*": "http://localhost:8000/"
+        }
     }
 };
