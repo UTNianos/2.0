@@ -1,9 +1,10 @@
+import bootstrap from 'bootstrap'
+import ko from '../ko/ko'
+import $ from 'jQuery'
+
 (function () {
     'use strict';
-    var $ = window.$ = window.jQuery = require('jquery');
-    var bootstrap = require('bootstrap'),
-        ko = require('../ko/ko.js'),
-        viewModel = {};
+    let viewModel = {};
     $.ready(function(){
         ko.applyBindings(viewModel);
         $('#planes').tab();

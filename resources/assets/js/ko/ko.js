@@ -1,9 +1,6 @@
-/**
- * Created by javier on 14/03/16.
- */
-var ko = require('knockout');
+import ko from 'knockout'
+import {editor} from './components/editor/comp'
 
-var components = require('./components/registerComponents.js');
-components(ko);
+ko.components.register('editor', editor);
 
-module.exports = ko;
+export default ko

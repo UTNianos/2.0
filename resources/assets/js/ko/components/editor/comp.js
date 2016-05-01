@@ -1,16 +1,11 @@
-/**
- * Created by javier on 14/03/16.
- */
-'use strict';
+import template from './template.html';
 
-var template = require('./template.html');
-var ko = require('knockout');
-function ViewModel(data) {
+const ViewModel = function (data) {
     this.editando = false;
-    this.contenido = ko.observable(data.contenido);
+    this.contenido = '';
 }
 
-module.exports = {
-    viewModel:  ViewModel,
-    template: template
-};
+export var editor = {
+    ViewModel,
+    template
+}

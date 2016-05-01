@@ -1,59 +1,13 @@
 var gulp    = require('gulp'),
-    elixir  = require('laravel-elixir'),
-    bowerFiles = require('bower-files')(),
-    del = require('del'),
-    fs = require('fs');
-
-var jss   = fs.readdirSync('resources/assets/js/entrypoints/'),
-    jsFiles  = jss.map(function (page) { return 'resources/assets/js/entrypoints/' + page; }),
-    outputs = jss.map(function (page) { return 'public/assets/js/' + page; });
+    elixir  = require('laravel-elixir');
 
 
-
-elixir.config.js.browserify.transformers.push({
-    name: 'debowerify',
-    options: {}
-});
-elixir.config.js.browserify.plugins.push({
-        name: 'factor-bundle',
-        options: {
-            outputs: outputs
-        }
-});
-
-elixir.config.css.less.pluginOptions = {
-    plugins: [require('less-plugin-glob')]
-};
 
 /**
  * Default gulp is to run this elixir stuff
  */
 elixir(function (mix) {
-    'use strict'
-    mix.browserify(jsFiles, 'public/assets/js/common.js');
-    //mix.browserify('main.js', 'public/assets/js/admin.js');
 
-    // Compile Less
-    mix.less(bowerFiles.ext(['css', 'less'])
-            .match('!**/bootstrap/**')
-            .relative('./resources/assets/less/')
-            .files,
-        'public/assets/css/vendor.css');
-
-    mix.less(['styles.less', "../js/ko/**/*.less"], 'public/assets/css/styles.css');
-
-    gulp.src(bowerFiles.ext(['eot', 'woff', 'ttf', 'svg']).files)
-        .pipe(gulp.dest("public/assets/fonts"));
-
-    if (elixir.config.production) {
-        mix.version(['assets/css/styles.css', 'assets/css/vendor.css', 'assets/js/*.js']);
-    }
-    else {
-        mix.browserSync({
-            proxy: 'localhost:8000',
-            online: false
-        });
-    }
 });
 
 gulp.task('clean', function () {
