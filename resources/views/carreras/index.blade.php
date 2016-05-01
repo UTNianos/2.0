@@ -7,6 +7,8 @@
             <div class="page-header">
                 <h1>{{ $carrera->nombre }}</h1>
             </div>
+            <like-widget params="value: userRating"></like-widget>
+
             <editor>
                 @if($carrera->descripcion)
                     {!! $carrera->descripcion->contenido !!}
