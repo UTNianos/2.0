@@ -41,13 +41,14 @@ npm install
 bower install
 
 #generamos el css y el javascript
-gulp
-
+#gulp #ya no usamos mas gulp
+npm start
 
 #con esto deberia estar todo seteado. testeamos y ponemos a correr el servidor
 phpunit
 
-php artisan serve
+php artisan serve --host=127.0.0.1
 
 ```
-una vez hecho esto el sitio deberia ser visible en http://localhost:8000
+una vez hecho esto el sitio deberia ser visible en http://localhost:3000
+por un lado esta el servidor de php y por el otro el webpack dev server, que usamos para generar el js y demas assets del frontend
