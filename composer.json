@@ -17,7 +17,9 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "barryvdh/laravel-ide-helper": "v2.1.2",
-        "doctrine/dbal": "2.3.5"
+        "doctrine/dbal": "2.3.5",
+        "phpmd/phpmd" : "@stable",
+        "squizlabs/php_codesniffer": "2.*"
     },
     "autoload": {
         "classmap": [
@@ -48,6 +50,12 @@
         ],
         "post-update-cmd": [
             "php artisan optimize"
+        ],
+        "lint": [
+            "phpcs app/"
+        ],
+        "test": [
+            "phpunit"
         ]
     },
     "config": {
