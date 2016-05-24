@@ -6,8 +6,8 @@
  */
 
 namespace Utnianos\Core\Models;
-use Utnianos\Core\Database\Models\Traits\TrackTodo;
 
+use Utnianos\Core\Database\Models\Traits\TrackTodo;
 
 /**
  * Utnianos\Core\Models\Documento

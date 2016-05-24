@@ -10,7 +10,8 @@ use Closure;
  * @author Javier Rotelli
  */
 trait Trackeable
-{    
+{
+    
     public static function bootTrackeable()
     {
         static::setEventDispatcher(\App()['events']);
@@ -30,5 +31,5 @@ trait Trackeable
     }
     
     
-    public abstract function belongsTo($related, $foreignKey = NULL, $otherKey = NULL, $relation = NULL);
+    public abstract function belongsTo($related, $foreignKey = null, $otherKey = null, $relation = null);
 }

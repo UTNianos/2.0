@@ -7,7 +7,6 @@
 
 namespace Utnianos\Core\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,5 +26,4 @@ class Facultad extends Model
     {
         return $this->belongsToMany('Utnianos\Core\Models\Carrera');
     }
-
 }

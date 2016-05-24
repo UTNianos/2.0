@@ -7,7 +7,6 @@
 
 namespace Utnianos\Core\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -41,12 +40,11 @@ class Correlativa extends Model
 
     public function requerimiento()
     {
-        return $this->belongsTo('Utnianos\Core\Models\Materia','requerimiento_id');
+        return $this->belongsTo('Utnianos\Core\Models\Materia', 'requerimiento_id');
     }
 
     public function plan()
     {
         return $this->belongsTo('Utnianos\Core\Models\Plan');
     }
-
 }

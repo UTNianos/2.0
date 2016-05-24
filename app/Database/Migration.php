@@ -7,7 +7,6 @@
 
 namespace Utnianos\Core\Database;
 
-
 use Utnianos\Core\Database\Schema\Blueprint;
 
 class Migration extends \Illuminate\Database\Migrations\Migration
@@ -28,5 +27,4 @@ class Migration extends \Illuminate\Database\Migrations\Migration
         });
 
     }
-
 }

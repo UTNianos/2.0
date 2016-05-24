@@ -32,9 +32,9 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/home', 'HomeController@index');
 
-    Route::resource('materias','MateriasController');
-    Route::resource('carreras','CarrerasController');
+    Route::resource('materias', 'MateriasController');
+    Route::resource('carreras', 'CarrerasController');
     Route::get('/', function () {
-        return view('index')->with('carreras',\Utnianos\Core\Models\Carrera::all(['nombre','id']));
+        return view('index')->with('carreras', \Utnianos\Core\Models\Carrera::all(['nombre','id']));
     });
 });

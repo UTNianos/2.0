@@ -12,7 +12,7 @@ trait TrackDelete
     
     public function borradoPor()
     {
-        return $this->belongsTo('Utnianos\Core\Usuario','borrado_por');
+        return $this->belongsTo('Utnianos\Core\Usuario', 'borrado_por');
     }
     
     public static function bootTrackDelete()

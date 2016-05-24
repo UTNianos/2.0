@@ -7,7 +7,6 @@
 
 namespace Utnianos\Core\Models;
 
-
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -42,6 +41,6 @@ class Materia extends Model
 
     public function habilita()
     {
-        return $this->hasMany('Utnianos\Core\Models\Correlativa','requerimiento_id');
+        return $this->hasMany('Utnianos\Core\Models\Correlativa', 'requerimiento_id');
     }
 }

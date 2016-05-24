@@ -72,8 +72,8 @@ class MigrarCarrerasUtnianos extends Command
         ]);
         Config::set('database.connections.utnianos_old.host', $host);
         Config::set('database.connections.utnianos_old.database', $db);
-        Config::set('database.connections.utnianos_old.username',$user);
-        Config::set('database.connections.utnianos_old.password',$pass);
+        Config::set('database.connections.utnianos_old.username', $user);
+        Config::set('database.connections.utnianos_old.password', $pass);
 
         return \DB::connection('utnianos_old');
     }
@@ -193,8 +193,8 @@ class MigrarCarrerasUtnianos extends Command
             $p = [];
             foreach($materiasPlanes[$materia->IdMateria] as $materiaPlan)
             {
-                if(!isset($planes[ $materiaPlan->IdPlan ])) //el plan de esta relacion no existe
-                    return;
+                if(!isset($planes[ $materiaPlan->IdPlan ])) { //el plan de esta relacion no existe
+                    return; }
                 $p[ $planes[ $materiaPlan->IdPlan ] ] = ['año' => $materiaPlan->Año,
                     'electiva' => $materiaPlan->Electiva];
             }
@@ -226,8 +226,8 @@ class MigrarCarrerasUtnianos extends Command
         $bar = $this->output->createProgressBar(count($correlativas));
 
         foreach ($correlativas as $correlativa) {
-            if(!isset($planes[$correlativa->IdPlan]) || !isset($materias[$correlativa->IdMateria]) || !isset($materias[$correlativa->IdRequerimiento]) )
-                continue;
+            if(!isset($planes[$correlativa->IdPlan]) || !isset($materias[$correlativa->IdMateria]) || !isset($materias[$correlativa->IdRequerimiento])) {
+                continue; }
 
             $tipoRequerimiento = null;
             if($correlativa->TipoMateria == 'C')

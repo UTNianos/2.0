@@ -7,7 +7,6 @@
 
 namespace Utnianos\Core\Models;
 
-
 use Eloquent;
 
 /**
@@ -35,6 +34,6 @@ class Carrera extends Eloquent
 
     public function descripcion()
     {
-        return $this->morphOne('Utnianos\Core\Models\Documento','duenio');
+        return $this->morphOne('Utnianos\Core\Models\Documento', 'duenio');
     }
 }
