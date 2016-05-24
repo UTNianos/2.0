@@ -29,15 +29,6 @@ class MigrarCarrerasUtnianos extends Command
     protected $description = 'Command description';
 
     /**
-     * Create a new command instance.
-     *
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    /**
      * Execute the console command.
      *
      * @return mixed
@@ -118,15 +109,19 @@ class MigrarCarrerasUtnianos extends Command
     private function importarCarreras(Connection $utnianos, $facultades)
     {
         $carreras = $utnianos->table('utnianos_carreras')->get();
-        $facultadesCarreras = collect( $utnianos->table('utnianos_facultadescarreras')->get())
-                                ->groupBy('IdCarrera');
+        $facultadesCarreras = collect(
+            $utnianos->table('utnianos_facultadescarreras')->get())
+            ->groupBy('IdCarrera');
 
         $this->info(PHP_EOL.'Importando carreras');
         $bar = $this->output->createProgressBar(count($carreras));
 
         $carrerasTrans = [];
         foreach ($carreras as $carrera) {
-            $carreraNueva = Carrera::create(['nombre' => $carrera->Nombre, 'abreviatura' => $carrera->Abreviatura]);
+            $carreraNueva = Carrera::create([
+                'nombre' => $carrera->Nombre,
+                'abreviatura' => $carrera->Abreviatura]);
+
             $idsFacultades = $facultadesCarreras[ $carrera->IdCarrera ]
                 ->pluck('IdFacultad')
                 ->map(function($idViejo) use($facultades){
@@ -171,7 +166,8 @@ class MigrarCarrerasUtnianos extends Command
     private function importarMaterias(Connection $utnianos, $planes)
     {
         $materias = $utnianos->table('utnianos_materias')->get();
-        $materiasPlanes = collect($utnianos->table('utnianos_planesmaterias')->get())
+        $materiasPlanes = collect($utnianos
+            ->table('utnianos_planesmaterias')->get())
                             ->groupBy('IdMateria');
 
         $this->info(PHP_EOL.'Importando materias');
@@ -185,18 +181,21 @@ class MigrarCarrerasUtnianos extends Command
                   'abreviatura' => $materia->Abreviatura,
                   'basica' => $materia->Basicas]);
 
-            if(!$materiasPlanes->has($materia->IdMateria))
-            {
-                $this->info(PHP_EOL.'Ignorando materia huerfana: id='.$materia->IdMateria.' Nombre:'.$materia->Nombre );
+            if (!$materiasPlanes->has($materia->IdMateria)) {
+                $this->info(PHP_EOL.'Ignorando materia huerfana: id='.
+                    $materia->IdMateria.' Nombre:'.$materia->Nombre );
                 continue;
             }
             $p = [];
-            foreach($materiasPlanes[$materia->IdMateria] as $materiaPlan)
-            {
-                if(!isset($planes[ $materiaPlan->IdPlan ])) { //el plan de esta relacion no existe
-                    return; }
-                $p[ $planes[ $materiaPlan->IdPlan ] ] = ['año' => $materiaPlan->Año,
-                    'electiva' => $materiaPlan->Electiva];
+            foreach ($materiasPlanes[$materia->IdMateria] as $materiaPlan) {
+                if (!isset($planes[ $materiaPlan->IdPlan ])) {
+                    //el plan de esta relacion no existe
+                    return [];
+                }
+                $p[ $planes[ $materiaPlan->IdPlan ] ] = [
+                    'año' => $materiaPlan->Año,
+                    'electiva' => $materiaPlan->Electiva
+                ];
             }
 
             $materiaNueva->planes()->sync($p);
@@ -226,37 +225,35 @@ class MigrarCarrerasUtnianos extends Command
         $bar = $this->output->createProgressBar(count($correlativas));
 
         foreach ($correlativas as $correlativa) {
-            if(!isset($planes[$correlativa->IdPlan]) || !isset($materias[$correlativa->IdMateria]) || !isset($materias[$correlativa->IdRequerimiento])) {
-                continue; }
+            if (!isset($planes[$correlativa->IdPlan]) ||
+                !isset($materias[$correlativa->IdMateria]) ||
+                !isset($materias[$correlativa->IdRequerimiento])) {
+                continue;
+            }
 
             $tipoRequerimiento = null;
-            if($correlativa->TipoMateria == 'C')
-            {
-                if($correlativa->TipoRequerimiento == 'C')
-                {
+            if ($correlativa->TipoMateria == 'C') {
+                if ($correlativa->TipoRequerimiento == 'C') {
                     $tipoRequerimiento = Correlativa::CURSADA_CURSADA;
                 }
-                elseif($correlativa->TipoRequerimiento == 'F')
-                {
+                elseif ($correlativa->TipoRequerimiento == 'F') {
                     $tipoRequerimiento = Correlativa::CURSADA_FINAL;
                 }
             }
-            elseif($correlativa->TipoMateria == 'F')
-            {
-                if($correlativa->TipoRequerimiento == 'C')
-                {
+            elseif ($correlativa->TipoMateria == 'F') {
+                if ($correlativa->TipoRequerimiento == 'C') {
                     $tipoRequerimiento = Correlativa::FINAL_CURSADA;
                 }
-                elseif($correlativa->TipoRequerimiento == 'F')
-                {
+                elseif ($correlativa->TipoRequerimiento == 'F') {
                     $tipoRequerimiento = Correlativa::FINAL_FINAL;
                 }
             }
 
-            Correlativa::create(['plan_id' => $planes[$correlativa->IdPlan],
-                                 'materia_id' => $materias[$correlativa->IdMateria],
-                                 'requerimiento_id' => $materias[$correlativa->IdRequerimiento],
-                                 'tipo_requerimiento' => $tipoRequerimiento]);
+            Correlativa::create([
+                'plan_id' => $planes[$correlativa->IdPlan],
+                'materia_id' => $materias[$correlativa->IdMateria],
+                'requerimiento_id' => $materias[$correlativa->IdRequerimiento],
+                'tipo_requerimiento' => $tipoRequerimiento]);
 
 
             $bar->advance();

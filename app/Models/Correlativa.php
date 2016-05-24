@@ -40,7 +40,8 @@ class Correlativa extends Model
 
     public function requerimiento()
     {
-        return $this->belongsTo('Utnianos\Core\Models\Materia', 'requerimiento_id');
+        return $this->belongsTo('Utnianos\Core\Models\Materia',
+                                'requerimiento_id');
     }
 
     public function plan()

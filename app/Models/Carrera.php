@@ -8,14 +8,15 @@
 namespace Utnianos\Core\Models;
 
 use Eloquent;
+use Illuminate\Database\Eloquent\Collection;
 
 /**
  * Utnianos\Core\Models\Carrera
  *
  * @property integer $id
  * @property string $nombre
- * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Carrera[] $facultades
- * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Plan[] $planes
+ * @property-read Collection|\Utnianos\Core\Models\Carrera[] $facultades
+ * @property-read Collection|\Utnianos\Core\Models\Plan[] $planes
  * @property string $abreviatura
  */
 class Carrera extends Eloquent

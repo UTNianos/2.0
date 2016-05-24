@@ -7,6 +7,7 @@
 
 namespace Utnianos\Core\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -18,8 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property integer $carrera_id
  * @property string $deleted_at
  * @property-read \Utnianos\Core\Models\Carrera $carrera
- * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Materia[] $materias
- * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Correlativa[] $correlativas
+ * @property-read Collection|\Utnianos\Core\Models\Materia[] $materias
+ * @property-read Collection|\Utnianos\Core\Models\Correlativa[] $correlativas
  */
 class Plan extends Model
 {
@@ -35,7 +36,8 @@ class Plan extends Model
 
     public function materias()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Materia')->withPivot('año', 'electiva');
+        return $this->belongsToMany('Utnianos\Core\Models\Materia')
+            ->withPivot('año', 'electiva');
     }
 
     public function correlativas()

@@ -18,7 +18,8 @@ trait Trackeable
     }
     
     /**
-     * genera una funcion que toma como parametro un trackeable y al ejecutarse le asocia a ese objeto
+     * genera una funcion que toma como parametro un trackeable
+     * y al ejecutarse le asocia a ese objeto
      * el usuario actualmente logueado en $relacion
      * @param string $relacion
      * @return Closure
@@ -31,5 +32,6 @@ trait Trackeable
     }
     
     
-    public abstract function belongsTo($related, $foreignKey = null, $otherKey = null, $relation = null);
+    public abstract function belongsTo($related, $foreignKey = null,
+                                       $otherKey = null, $relation = null);
 }

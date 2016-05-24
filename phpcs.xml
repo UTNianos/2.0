@@ -30,7 +30,7 @@
     </rule>
     <rule ref="MySource.PHP.EvalObjectFactory"/>
     <rule ref="PEAR.Commenting.InlineComment"/>
-    <rule ref="PEAR.ControlStructures.ControlSignature"/>
+
     <rule ref="PEAR.Functions.ValidDefaultValue"/>
     <rule ref="PEAR.WhiteSpace.ObjectOperatorIndent"/>
     <rule ref="PSR1.Classes.ClassDeclaration"/>

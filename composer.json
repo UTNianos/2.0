@@ -52,7 +52,7 @@
             "php artisan optimize"
         ],
         "lint": [
-            "phpcs app/"
+            "phpcs -n app/"
         ],
         "test": [
             "phpunit"
