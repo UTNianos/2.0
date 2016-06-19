@@ -49,7 +49,7 @@ class CarrerasController extends Controller
     public function show($id)
     {
         $carrera = Carrera::findOrFail($id);
-        return view('carreras.index')->with('carrera', $carrera);
+        return $carrera;
     }
 
     /**

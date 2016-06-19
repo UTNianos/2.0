@@ -4,7 +4,6 @@ namespace Utnianos\Core\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\View;
 use Utnianos\Core\Http\Requests;
 use Utnianos\Core\Http\Controllers\Controller;
 
@@ -60,7 +59,7 @@ class MateriasController extends Controller
      */
     public function edit($id)
     {
-        return view('materias.show');
+        //
     }
 
     /**
