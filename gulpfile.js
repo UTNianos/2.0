@@ -9,13 +9,3 @@ var gulp    = require('gulp'),
 elixir(function (mix) {
 
 });
-
-gulp.task('clean', function () {
-    return del([
-        'public/build/**/*',
-        'public/assets/**/*',
-        '!public/assets',
-        '!public/assets/js',
-        '!public/assets/js/.gitkeep'
-    ]);
-});
