@@ -11,10 +11,7 @@
     - [Composer](https://getcomposer.org/doc/00-intro.md)
     - [PHPUnit](https://phpunit.de/) (via composer) 
     - (Opcional) [PHPMD](http://phpmd.org/download/index.html) analisis estatico del codigo
-    
-- NodeJS (para el frontend)
-    - [Bower](http://bower.io/#install-bower)
-    
+
     
 #### Inicializacion
 
@@ -36,16 +33,6 @@ php artisan key:generate
 #ahora hay que correr las migraciones para crear la estructura de la base de datos
 php artisan migrate
 
-#Frontend
-npm install
-#instalamos las dependencias
-bower install
-
-#generamos el css y el javascript
-#gulp #ya no usamos mas gulp
-npm start
-
-#con esto deberia estar todo seteado. testeamos y ponemos a correr el servidor
 phpunit
 
 php artisan serve --host=127.0.0.1

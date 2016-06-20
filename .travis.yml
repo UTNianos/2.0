@@ -14,3 +14,6 @@ before_script:
 script:
   - composer test
   - composer run lint
+
+notifications:
+  email: false
