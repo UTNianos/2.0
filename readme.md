@@ -38,5 +38,5 @@ phpunit
 php artisan serve --host=127.0.0.1
 
 ```
-una vez hecho esto el sitio deberia ser visible en http://localhost:3000
+una vez hecho esto el sitio deberia ser visible en http://localhost:8000
 por un lado esta el servidor de php y por el otro el webpack dev server, que usamos para generar el js y demas assets del frontend
