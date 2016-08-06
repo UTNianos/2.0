@@ -2,7 +2,6 @@
 
 [![Build Status](https://travis-ci.org/UTNianos/2.0.svg?branch=master)](https://travis-ci.org/UTNianos/2.0)
 
-
 #### Seteando un ambiente de desarrollo
 
 **Tecnologias utilizadas para desarrollar:**
@@ -17,9 +16,38 @@
 
 
 ```sh
-# Primero, pulleamos el repositorio
-git clone git@github.com:UTNianos/2.0.git
+
+# Descargar prerequisitos
+sudo apt-get install php5 mysql-server
+
+#Bajar composer y phpunit
+wget https://getcomposer.org/installer
+wget https://phar.phpunit.de/phpunit.phar
+
+# Instalar composer y mover composer a un directorio
+# que este dentro del path.
+php installer
+chmod +x installer
+mv composer.phar /usr/local/bin/composer
+
+# Instalar PHPUnit
+chmod +x phpunit.phar
+sudo mv phpunit.phar /usr/local/bin/phpunit
+
+# Arrancar el servicio de base de datos
+sudo service mysql start
+
+# Crear base de datos
+mysql
+CREATE DATABASE homestead;
+
+# Clonar repositorio
+git clone https://github.com/UTNianos/2.0.git
 cd 2.0
+
+# Instalar dependencias
+composer install
+
 
 #instalamos las dependencias del backend con composer
 composer install
@@ -36,7 +64,7 @@ php artisan migrate
 phpunit
 
 php artisan serve --host=127.0.0.1
-
 ```
+
 una vez hecho esto el sitio deberia ser visible en http://localhost:8000
 por un lado esta el servidor de php y por el otro el webpack dev server, que usamos para generar el js y demas assets del frontend
