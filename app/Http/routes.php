@@ -38,3 +38,9 @@ Route::group(['middleware' => 'web'], function () {
         return [];
     });
 });
+
+Route::group(['prefix' => 'api'], function()
+{
+//    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    Route::post('authenticate', 'AuthenticateController@authenticate');
+});

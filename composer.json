@@ -7,7 +7,8 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.4.*@dev"
+        "laravel/framework": "5.4.*",
+        "tymon/jwt-auth": "^0.5.10"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -57,6 +58,8 @@
         ]
     },
     "config": {
+        "minimum-stability": "dev",
+        "prefer-stable": true,
         "preferred-install": "dist"
     }
 }

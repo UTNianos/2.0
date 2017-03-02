@@ -156,6 +156,8 @@ return [
         Utnianos\Core\Providers\EventServiceProvider::class,
         Utnianos\Core\Providers\RouteServiceProvider::class,
 
+        //JWT
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
         //ide helper
 //        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
