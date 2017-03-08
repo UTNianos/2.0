@@ -19,8 +19,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  */
-class Usuario extends Authenticatable
-implements JWTSubject
+class Usuario extends Authenticatable implements JWTSubject
 {
     /**
      * The attributes that are mass assignable.
