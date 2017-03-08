@@ -11,29 +11,41 @@ class AuthTest extends TestCase
 
     private $user;
 
-    public function setUp()
-    {
-
-        parent::setUp();
-    }
-
     /**
      * A basic functional test example.
      *
      * @return void
      */
-    public function testBasicExample()
+    public function testGetToken()
     {
-        $this->user = factory(Usuario::class)->create([
+        $user = factory(Usuario::class)->create([
             'password' => 'testPassword',
         ]);
+
         $response = $this->json('POST', '/api/authenticate',
-            ['email' => $this->user->email, 'password' => 'testPassword']);
+            ['email' => $user->email, 'password' => 'testPassword']);
         $response->assertJsonStructure(['token']);
         $token = $response->json()['token'];
 
         // el token deberia ser del usuario que se registro
         $decodedToken = \Tymon\JWTAuth\Facades\JWTAuth::decode(new \Tymon\JWTAuth\Token($token));
-        $this->assertEquals($this->user->id, $decodedToken['sub']);
+        $this->assertEquals($user->id, $decodedToken['sub']);
+    }
+
+    public function testNoToken() {
+        $response = $this->json('GET', '/api/authenticate');
+        $response->assertStatus(400);
+
+    }
+
+    public function testToken()
+    {
+        $user = factory(Usuario::class)->create([
+            'password' => 'testPassword',
+        ]);
+        $token = JWTAuth::fromUser($user);
+        $response = $this->json('GET', '/api/authenticate', [],
+            ['Authorization' => 'Bearer '.$token]);
+        $response->assertStatus(200);
     }
 }

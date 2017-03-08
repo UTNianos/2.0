@@ -4,7 +4,6 @@ namespace Utnianos\Core\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Exceptions\JWTException;
-use Tymon\JWTAuth\Facades\JWTAuth;
 
 class AuthenticateController extends Controller
 {
@@ -14,7 +13,7 @@ class AuthenticateController extends Controller
 
         try {
             // verify the credentials and create a token for the user
-            if (!$token = JWTAuth::attempt($credentials)) {
+            if (!$token = \JWTAuth::attempt($credentials)) {
                 return response()->json(['error' => 'invalid_credentials'], 401);
             }
         } catch (JWTException $e) {
@@ -24,5 +23,10 @@ class AuthenticateController extends Controller
 
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));
+    }
+
+    public function index(Request $request)
+    {
+        return \JWTAuth::parseToken()->authenticate();
     }
 }
