@@ -23,12 +23,7 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-    //
-});
-
 Route::group(['middleware' => 'web'], function () {
-    Route::auth();
 
     Route::get('/home', 'HomeController@index');
 
@@ -37,4 +32,11 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         return [];
     });
+});
+
+Route::group(['prefix' => 'api'], function() {
+    Route::group(['middleware' => ['api', 'jwt.auth']], function() {
+        Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    });
+    Route::post('authenticate', 'AuthenticateController@authenticate');
 });
