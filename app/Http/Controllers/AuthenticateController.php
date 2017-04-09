@@ -3,6 +3,8 @@
 namespace Utnianos\Core\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Response;
+use Socialite;
 use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthenticateController extends Controller
@@ -28,5 +30,26 @@ class AuthenticateController extends Controller
     public function index(Request $request)
     {
         return \JWTAuth::parseToken()->authenticate();
+    }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->stateless()->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('github')->stateless()->user();
+        return var_dump($user);
     }
 }

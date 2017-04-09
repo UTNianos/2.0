@@ -39,4 +39,6 @@ Route::group(['prefix' => 'api'], function() {
         Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
     });
     Route::post('authenticate', 'AuthenticateController@authenticate');
+    Route::get('login/oauth', 'AuthenticateController@redirectToProvider');
+    Route::get('login/oauth/callback', 'AuthenticateController@handleProviderCallback');
 });
