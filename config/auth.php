@@ -69,11 +69,6 @@ return [
             'driver' => 'eloquent',
             'model' => Utnianos\Core\Usuario::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*

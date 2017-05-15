@@ -56,7 +56,7 @@
             "phpcs -n app/"
         ],
         "test": [
-            "phpunit"
+            "phpunit --testdox"
         ]
     },
     "config": {

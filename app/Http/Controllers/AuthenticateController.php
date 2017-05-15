@@ -3,12 +3,17 @@
 namespace Utnianos\Core\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Response;
 use Socialite;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Utnianos\Core\Usuario;
 
 class AuthenticateController extends Controller
 {
+
+    private static $providers = ['github', 'facebook', 'google'];
+
     public function authenticate(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -24,12 +29,33 @@ class AuthenticateController extends Controller
         }
 
         // if no errors are encountered we can return a JWT
-        return response()->json(compact('token'));
+        return response()->json(['token' => $token]);
     }
 
     public function index(Request $request)
     {
         return \JWTAuth::parseToken()->authenticate();
+    }
+
+    /**
+     * registra un usuario nuevo.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function registrar(Request $request)
+    {
+        $this->validate($request, [
+                'usuario' => 'required|unique:usuarios|max:255',
+                'email' => 'required|unique:usuarios|email',
+                'password' => 'required|max:1024'
+            ]);
+
+        $usuario = new Usuario($request->only(['usuario','email', 'password']));
+        $usuario->save();
+
+        $token = \JWTAuth::fromUser($usuario);
+
+        return response()->json(['token' => $token]);
     }
 
     /**
@@ -43,13 +69,56 @@ class AuthenticateController extends Controller
     }
 
     /**
-     * Obtain the user information from GitHub.
-     *
-     * @return Response
+     * realiza el login de un usuario a partir de un token
+     * @param Request $request
+     * @param $provider
+     * @return \Illuminate\Http\JsonResponse
+     * @internal param $token
      */
-    public function handleProviderCallback()
+    public function loginWithProvider(Request $request, $provider)
     {
-        $user = Socialite::driver('github')->stateless()->user();
-        return var_dump($user);
+        $this->validate($request,
+            ['provider' => Rule::in(self::$providers),
+                'token' => 'required']);
+        $providerUser = Socialite::driver($provider)
+            ->stateless()
+            ->userFromToken($request->get('token'));
+
+        $user = Usuario::where('provider', $provider)
+            ->where('provider_id', $providerUser->getId())->first();
+        if ($user === null) {
+            return response()->json([
+                'id' => $providerUser->getId(),
+                'nickname' => $providerUser->getNickname(),
+                'name' => $providerUser->getName(),
+                'email' => $providerUser->getEmail(),
+                'avatar' => $providerUser->getAvatar()
+            ], 401);
+        } else {
+            $token = \JWTAuth::fromUser($user);
+            return response()->json(['token' => $token]);
+        }
+    }
+
+
+    /**
+     * Obtain the user information from provider.
+     *
+     * @param Request $request
+     * @param $provider
+     * @return \Illuminate\Http\JsonResponse|Response
+     */
+    public function handleProviderCallback(Request $request, $provider)
+    {
+        $this->validate($request, ['provider' => Rule::in(self::$providers)]);
+        $githubUser = Socialite::driver($provider)->stateless()->user();
+        $user = Usuario::where('provider', $provider)
+            ->where('provider_id', $githubUser->getId())->first();
+        if ($user === null) {
+            return response('usuario inexistente', 401);
+        } else {
+            $token = \JWTAuth::fromUser($user);
+            return response()->json(['token' => $token]);
+        }
     }
 }
