@@ -121,4 +121,24 @@ class AuthenticateController extends Controller
             return response()->json(['token' => $token]);
         }
     }
+
+    /**
+     *
+     * @return \Illuminate\Http\JsonResponse|Response
+     */
+    public function getProviders()
+    {
+
+        $google = Socialite::driver('google')->stateless();
+        $googleConfig = config('services.google');
+        return response()->json([
+            [
+                'name' => 'google',
+                'url' => 'https://accounts.google.com/o/oauth2/v2/auth',
+                'client' => $googleConfig['client_id'],
+                'redirect' => $googleConfig['redirect'],
+                'scope' => $google->getScopes()
+            ]
+        ]);
+    }
 }

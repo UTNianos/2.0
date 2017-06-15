@@ -43,4 +43,5 @@ Route::group(['prefix' => 'api'], function() {
     Route::post('login/token/{provider}', 'AuthenticateController@loginWithProvider');
     Route::get('login/oauth/callback/{provider}', 'AuthenticateController@handleProviderCallback');
     Route::get('login/oauth', 'AuthenticateController@redirectToProvider');
+    Route::get('login/providers', 'AuthenticateController@getProviders');
 });
