@@ -32,7 +32,7 @@ class AuthTest extends TestCase
 
     public function testNoToken() {
         $response = $this->json('GET', '/api/authenticate');
-        $response->assertStatus(400);
+        $response->assertStatus(401);
 
     }
 
