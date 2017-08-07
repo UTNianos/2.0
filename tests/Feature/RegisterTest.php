@@ -16,11 +16,14 @@ class registerTest extends TestCase
      */
     public function testRegistroCorrecto()
     {
-        $response = $this->json('POST', '/api/registrar',
-            ['usuario'=> 'aUser', 'email' => 'aUser@example.com', 'password' => 'testPassword']);
+        $user = ['usuario'=> 'aUser', 'email' => 'aUser@example.com', 'password' => 'testPassword'];
+        $response = $this->json('POST', '/api/registrar', $user );
         $response->assertStatus(200);
         $response->assertJsonStructure(['token']);
         $token = $response->json()['token'];
+
+        $decodedToken = JWTAuth::decode(new Token($token));
+        $this->assertEquals(1, $decodedToken['sub']);
     }
 
     public function testDeberiaFallarSiElUsuarioOElMailExiste() {
