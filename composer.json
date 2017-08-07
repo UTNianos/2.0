@@ -57,6 +57,9 @@
         ],
         "test": [
             "phpunit --testdox"
+        ],
+        "test-ci": [
+            "phpunit --testdox --coverage-clover=coverage.xml"
         ]
     },
     "config": {
