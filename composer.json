@@ -8,7 +8,8 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.4.*",
-        "tymon/jwt-auth": "1.0.*@dev"
+        "tymon/jwt-auth": "1.0.*@dev",
+        "laravel/socialite": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -30,9 +31,9 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
+        "psr-4": {
+            "Utnianos\\Tests\\": "tests/"
+      }
     },
     "scripts": {
         "post-root-package-install": [
@@ -55,7 +56,10 @@
             "phpcs -n app/"
         ],
         "test": [
-            "phpunit"
+            "phpunit --testdox"
+        ],
+        "test-ci": [
+            "phpunit --testdox --coverage-clover=coverage.xml"
         ]
     },
     "config": {

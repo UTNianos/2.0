@@ -1,6 +1,7 @@
 # Utnianos 2.0
 
-[![Build Status](https://travis-ci.org/UTNianos/2.0.svg?branch=master)](https://travis-ci.org/UTNianos/2.0)
+[![Build Status](https://travis-ci.org/UTNianos/2.0.svg?branch=master)](https://travis-ci.org/UTNianos/2.0) 
+[![codecov](https://codecov.io/gh/UTNianos/2.0/branch/master/graph/badge.svg)](https://codecov.io/gh/UTNianos/2.0)
 
 #### Seteando un ambiente de desarrollo
 

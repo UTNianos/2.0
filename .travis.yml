@@ -13,8 +13,11 @@ before_script:
   - php artisan jwt:secret
 
 script:
-  - composer test
+  - composer run test-ci
   - composer run lint
+
+after_script:
+  - bash <(curl -s https://codecov.io/bash)
 
 notifications:
   email: false

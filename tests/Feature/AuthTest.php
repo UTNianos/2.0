@@ -1,19 +1,17 @@
 <?php
+namespace Utnianos\Tests\Feature;
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Token;
 use Utnianos\Core\Usuario;
+use Utnianos\Tests\TestCase;
 
 class AuthTest extends TestCase
 {
     use DatabaseMigrations;
 
-    private $user;
-
     /**
-     * A basic functional test example.
-     *
      * @return void
      */
     public function testGetToken()
@@ -28,13 +26,13 @@ class AuthTest extends TestCase
         $token = $response->json()['token'];
 
         // el token deberia ser del usuario que se registro
-        $decodedToken = \Tymon\JWTAuth\Facades\JWTAuth::decode(new \Tymon\JWTAuth\Token($token));
+        $decodedToken = JWTAuth::decode(new Token($token));
         $this->assertEquals($user->id, $decodedToken['sub']);
     }
 
     public function testNoToken() {
         $response = $this->json('GET', '/api/authenticate');
-        $response->assertStatus(400);
+        $response->assertStatus(401);
 
     }
 

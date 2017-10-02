@@ -158,6 +158,8 @@ return [
 
         //JWT
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
+        //Socialite
+        Laravel\Socialite\SocialiteServiceProvider::class,
         //ide helper
 //        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
@@ -207,7 +209,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
-        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     ],
 
 ];
