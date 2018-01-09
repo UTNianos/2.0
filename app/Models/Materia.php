@@ -46,4 +46,14 @@ class Materia extends Model
         return $this->hasMany('Utnianos\Core\Models\Correlativa',
                               'requerimiento_id');
     }
+
+    public function profesores()
+    {
+        return $this->belongsToMany('Utnianos\Core\Models\Profesor');
+    }
+
+    public function alumnos()
+    {
+        return $this->belongsToMany('Utnianos\Core\Models\Alumno')->withPivot(['estado']);
+    }
 }

@@ -63,4 +63,14 @@ class Usuario extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public function alumno()
+    {
+        return $this->hasOne('Utnianos\Core\Models\Alumno');
+    }
+
+    public function profesor()
+    {
+        return $this->hasOne('Utnianos\Core\Models\Profesor');
+    }
 }
