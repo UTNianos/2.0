@@ -1,6 +1,6 @@
 <?php
 
-namespace Utnianos\Core\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,11 @@ class Profesor extends Model
 
     public function usuario()
     {
-        return $this->hasOne('Utnianos\Core\Usuario');
+        return $this->hasOne('\App\Usuario');
     }
 
     public function materias()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Materia');
+        return $this->belongsToMany('\App\Models\Materia');
     }
 }

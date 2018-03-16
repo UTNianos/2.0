@@ -5,22 +5,22 @@
  * Time: 19:19
  */
 
-namespace Utnianos\Core\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Utnianos\Core\Models\Plan
+ * \App\Models\Plan
  *
  * @property integer $id
  * @property string $nombre
  * @property integer $carrera_id
  * @property string $deleted_at
- * @property-read \Utnianos\Core\Models\Carrera $carrera
- * @property-read Collection|\Utnianos\Core\Models\Materia[] $materias
- * @property-read Collection|\Utnianos\Core\Models\Correlativa[] $correlativas
+ * @property-read \App\Models\Carrera $carrera
+ * @property-read Collection|\App\Models\Materia[] $materias
+ * @property-read Collection|\App\Models\Correlativa[] $correlativas
  */
 class Plan extends Model
 {
@@ -31,17 +31,17 @@ class Plan extends Model
 
     public function carrera()
     {
-        return $this->belongsTo('Utnianos\Core\Models\Carrera');
+        return $this->belongsTo('\App\Models\Carrera');
     }
 
     public function materias()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Materia')
+        return $this->belongsToMany('\App\Models\Materia')
             ->withPivot('año', 'electiva');
     }
 
     public function correlativas()
     {
-        return $this->hasMany('Utnianos\Core\Models\Correlativa');
+        return $this->hasMany('\App\Models\Correlativa');
     }
 }

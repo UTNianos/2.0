@@ -5,18 +5,18 @@
  * Time: 19:09
  */
 
-namespace Utnianos\Core\Models;
+namespace App\Models;
 
 use Eloquent;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
- * Utnianos\Core\Models\Carrera
+ * \App\Models\Carrera
  *
  * @property integer $id
  * @property string $nombre
- * @property-read Collection|\Utnianos\Core\Models\Carrera[] $facultades
- * @property-read Collection|\Utnianos\Core\Models\Plan[] $planes
+ * @property-read Collection|\App\Models\Carrera[] $facultades
+ * @property-read Collection|\App\Models\Plan[] $planes
  * @property string $abreviatura
  */
 class Carrera extends Eloquent
@@ -25,16 +25,11 @@ class Carrera extends Eloquent
 
     public function facultades()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Facultad');
+        return $this->belongsToMany('\App\Models\Facultad');
     }
 
     public function planes()
     {
-        return $this->hasMany('Utnianos\Core\Models\Plan');
-    }
-
-    public function descripcion()
-    {
-        return $this->morphOne('Utnianos\Core\Models\Documento', 'duenio');
+        return $this->hasMany('\App\Models\Plan');
     }
 }

@@ -11,12 +11,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $testUser = new \Utnianos\Core\Usuario();
-        $testUser->email = 'test@example.com';
-        $testUser->usuario = 'test';
-        $testUser->password = 'password';
-        $testUser->save();
-
-        $this->call(CarrerasSeeder::class);
+        // $this->call(UsersTableSeeder::class);
     }
 }

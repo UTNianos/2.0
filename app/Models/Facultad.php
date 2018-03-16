@@ -5,17 +5,17 @@
  * Time: 19:07
  */
 
-namespace Utnianos\Core\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Utnianos\Core\Models\Facultad
+ * \App\Models\Facultad
  *
  * @property integer $id
  * @property string $nombre
  * @property string $abreviatura
- * @property-read \Illuminate\Database\Eloquent\Collection|\Utnianos\Core\Models\Carrera[] $carreras
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Carrera[] $carreras
  */
 class Facultad extends Model
 {
@@ -24,6 +24,6 @@ class Facultad extends Model
 
     public function carreras()
     {
-        return $this->belongsToMany('Utnianos\Core\Models\Carrera');
+        return $this->belongsToMany('\App\Models\Carrera');
     }
 }
