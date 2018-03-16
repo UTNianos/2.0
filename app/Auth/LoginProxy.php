@@ -6,7 +6,6 @@ use Cookie;
 use Illuminate\Foundation\Application;
 use App\Auth\Exceptions\InvalidCredentialsException;
 
-
 class LoginProxy
 {
     const REFRESH_TOKEN = 'refreshToken';
