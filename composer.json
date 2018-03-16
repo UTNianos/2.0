@@ -53,6 +53,15 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "lint": [
+            "phpcs -n app/"
+        ],
+        "test": [
+            "phpunit --testdox"
+        ],
+        "test-ci": [
+            "phpunit --testdox --coverage-clover=coverage.xml"
         ]
     },
     "config": {
