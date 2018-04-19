@@ -10,7 +10,7 @@ before_script:
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate
-  - php artisan jwt:secret
+  - php artisan passport:keys
 
 script:
   - composer run test-ci
