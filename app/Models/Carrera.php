@@ -7,7 +7,7 @@
 
 namespace App\Models;
 
-use Eloquent;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
 
 /**
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\Collection;
  * @property-read Collection|\App\Models\Plan[] $planes
  * @property string $abreviatura
  */
-class Carrera extends Eloquent
+class Carrera extends Model
 {
     public $timestamps = false;
 
