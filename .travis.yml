@@ -12,7 +12,7 @@ before_script:
   - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --prefer-dist --no-interaction
   - php artisan key:generate
   - php artisan migrate
-  - php artisan jwt:secret
+  - php artisan jwt:secret -nf
 
 script:
   - composer run test-ci

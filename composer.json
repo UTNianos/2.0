@@ -26,7 +26,8 @@
         "laravel/telescope": "~2.0",
         "mockery/mockery": "^1.0",
         "nunomaduro/collision": "^3.0",
-        "phpunit/phpunit": "^7.5"
+        "phpunit/phpunit": "^7.5",
+        "squizlabs/php_codesniffer": "*"
     },
     "config": {
         "optimize-autoloader": true,
@@ -69,6 +70,7 @@
             "@php artisan jwt:secret"
         ],
         "test": "./vendor/bin/phpunit --colors=always -v --testdox",
+        "test-ci":"phpunit --testdox --coverage-clover=coverage.xml",
         "lint": "./vendor/bin/phpcs",
         "docs": [
             "@php artisan ide-helper:generate --no-interaction"
