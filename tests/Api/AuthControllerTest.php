@@ -18,7 +18,6 @@ class AuthControllerTest extends ApiTestCase
     public function testAuth() {
         $jsonResponse = $this->json('GET', '/auth/jwt/token',[], ['Authorization'=>"basic ".base64_encode('admin@admin.com:secret')]);
         // Check status and structure
-        var_dump($jsonResponse->json());
         $jsonResponse
             ->assertStatus(200)
             ->assertJsonStructure(
