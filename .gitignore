@@ -1,9 +1,23 @@
-#configuracion de cada entorno
-.env
-#directorios utilizados para librerias
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/storage/laradock
 /vendor
-Homestead.yaml
-Homestead.json
-#carpetas especificas de la IDE
 /.idea
-/nbproject
+/.vscode
+/.vagrant
+
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+.env
+composer.lock
+
+.phpstorm*
+_ide_helper.php
+
+# mac os
+.DS_Store

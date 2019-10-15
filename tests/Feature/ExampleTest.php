@@ -1,10 +1,9 @@
 <?php
-namespace Utnianos\Tests\Feature;
 
-use Utnianos\Tests\TestCase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ExampleTest extends TestCase
 {
@@ -16,6 +15,7 @@ class ExampleTest extends TestCase
     public function testBasicTest()
     {
         $response = $this->get('/');
+
         $response->assertStatus(200);
     }
 }

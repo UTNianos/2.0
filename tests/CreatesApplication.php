@@ -1,6 +1,6 @@
 <?php
 
-namespace Utnianos\Tests;
+namespace Tests;
 
 use Illuminate\Contracts\Console\Kernel;
 

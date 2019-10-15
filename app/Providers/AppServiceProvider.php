@@ -1,9 +1,10 @@
 <?php
 
-namespace Utnianos\Core\Providers;
+namespace App\Providers;
 
-use Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider;
 use Illuminate\Support\ServiceProvider;
+use App\Exceptions\ApiExceptionHandler;
+use Config;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,8 +25,29 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() !== 'production') {
-            $this->app->register(IdeHelperServiceProvider::class);
+        $this->registerExceptionHandler();
+        $this->registerTelescope();
+    }
+
+    /**
+     * Register the exception handler - extends the Dingo one
+     *
+     * @return void
+     */
+    protected function registerExceptionHandler()
+    {
+        $this->app->singleton('api.exception', function ($app) {
+            return new ApiExceptionHandler($app['Illuminate\Contracts\Debug\ExceptionHandler'], Config('api.errorFormat'), Config('api.debug'));
+        });
+    }
+
+    /**
+     * Conditionally register the telescope service provider
+     */
+    protected function registerTelescope()
+    {
+        if ($this->app->environment('local', 'testing')) {
+            $this->app->register(TelescopeServiceProvider::class);
         }
     }
 }

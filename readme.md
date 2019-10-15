@@ -1,71 +1,71 @@
-# Utnianos 2.0
+[![StyleCI](https://github.styleci.io/repos/131504554/shield?branch=master)](https://github.styleci.io/repos/131504554)
 
-[![Build Status](https://travis-ci.org/UTNianos/2.0.svg?branch=master)](https://travis-ci.org/UTNianos/2.0) 
-[![codecov](https://codecov.io/gh/UTNianos/2.0/branch/master/graph/badge.svg)](https://codecov.io/gh/UTNianos/2.0)
+<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
-#### Seteando un ambiente de desarrollo
+## About Laravel API Boilerplate
+This is a boilerplate for writing RESTful API projects using Laravel. The aim of this boilerplate is to provide developers with scaffolding and common functionality which will make writing APIs exceedingly quick, efficient and convenient.
 
-**Tecnologias utilizadas para desarrollar:**
+It is intended for this repository to be used when starting a new API project. Therefore, instead of cloning the laravel repository, you should clone this one.
+
+The principles of this boilerplate are to;
+
+ - Save developers considerable effort by using reasonable conventions
+ - Allow for everything the boilerplate provides to be easily and entirely customised to suit developer needs, through normal PHP inheritance
+   - As well as allow developers to easily use the boilerplate functionality and mix it in with their own implementation
+ - Follow REST standards very closely
+ - Use existing Laravel features and existing Laravel add-on packages where possible
+ - Add many convenient features useful for writing APIs
+ - Maintain a high level of performance
+
+## Documentation
+For setup, usage guidance, and all other docs - please consult the [Project Wiki](https://github.com/specialtactics/l5-api-boilerplate/wiki).
+
+## Contributing
+
+If you would like to contribute to this project, please feel free to submit a pull request. If you plan to do any major work - it may be worthwhile messaging the author beforehand to explain your plans and get them approved.
+
+Please keep in mind, this package is only the template portion of the boilerplate, the main portion is [l5-api](https://github.com/specialtactics/l5-api). 
+Before adding any new functionality, you should consider whether it's possible at all to keep it out of this project and rather put it into l5-api, as that is preferred.
+
+## Check out the documentation of supporting projects
+
+Every great project stands on the shoulders of giants. Check out the documentation of these key supporting packages to learn more;
+
+ - [Laravel](https://laravel.com/docs/)
+ - [Dingo API](https://github.com/dingo/api/wiki)
+ - [Tymon JWT Auth](https://github.com/tymondesigns/jwt-auth)
+ - [League Fractal](https://fractal.thephpleague.com/)
+ - [Laravel UUID](https://github.com/webpatser/laravel-uuid/tree/2.1.1)
+
+## Recommended Packages
+
+I have tried to include only the packages thought absolutely necessary, so here is a list of packages I recommend checking out:
+
+#### General 
+ - [PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
+ - [Laravel Cors](https://github.com/barryvdh/laravel-cors)
+ - [PHP-VCR](https://github.com/php-vcr/php-vcr)
+
+#### For Debugging 
+ - [Bugsnag for Laravel](https://github.com/bugsnag/bugsnag-laravel)
+ - [Sentry](https://github.com/getsentry/sentry-laravel)
+
+
+## Todo
+ - Add model factory to make:api-resource command and integrate it with stub for seeder
+ - Add pagination to child controller getAll() (requires a bit of a rewrite of how that works)
+ - Think of an easy way to deal with needing to hide relationships 
+ - Add command to make a new transformer
+ - Integrate this https://github.com/spatie/laravel-query-builder
+ - Add primitive transformers
+ - Add config & allow ID to be added to model resource
+ - Write more tests
+ - Allow for authentication using only JWT, with middleware (for high speed requests)
+ - Bulk delete
+ - Bulk put/post
+ - Abstract all string text into language files
+ - Logging of API requests using middleware
+
+## License
  
-- PHP(> 5.5.9)
-    - [Composer](https://getcomposer.org/doc/00-intro.md)
-    - [PHPUnit](https://phpunit.de/) (via composer) 
-    - (Opcional) [PHPMD](http://phpmd.org/download/index.html) analisis estatico del codigo
-
-    
-#### Inicializacion
-
-
-```sh
-
-# Descargar prerequisitos
-sudo apt-get install php5 mysql-server
-
-#Bajar composer y phpunit
-wget https://getcomposer.org/installer
-wget https://phar.phpunit.de/phpunit.phar
-
-# Instalar composer y mover composer a un directorio
-# que este dentro del path.
-php installer
-chmod +x installer
-mv composer.phar /usr/local/bin/composer
-
-# Instalar PHPUnit
-chmod +x phpunit.phar
-sudo mv phpunit.phar /usr/local/bin/phpunit
-
-# Arrancar el servicio de base de datos
-sudo service mysql start
-
-# Crear base de datos
-mysql
-CREATE DATABASE homestead;
-
-# Clonar repositorio
-git clone https://github.com/UTNianos/2.0.git
-cd 2.0
-
-# Instalar dependencias
-composer install
-
-
-#instalamos las dependencias del backend con composer
-composer install
-
-# copiamos la configuracion de ejemplo 
-#y editamos los parametros de nuestra maquina
-cp .env.example .env
-#editar .env y reemplazar los datos de la conexion a la base de datos
-#clave para la encripcion
-php artisan key:generate
-#ahora hay que correr las migraciones para crear la estructura de la base de datos
-php artisan migrate
-
-phpunit
-
-php artisan serve --host=127.0.0.1
-```
-
-una vez hecho esto el sitio deberia ser visible en http://localhost:8000
-por un lado esta el servidor de php y por el otro el webpack dev server, que usamos para generar el js y demas assets del frontend
+This boilerplate, much like the Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).

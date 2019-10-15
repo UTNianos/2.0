@@ -1,16 +1,18 @@
 language: php
 
 php:
-  - 5.6
-
+  - 7.3
+services:
+  - postgresql
 before_script:
   - cp .env.example .env
-  - mysql -e 'create database homestead;'
+  - psql -c 'create database utnianos_local;' -U postgres
+  - psql -c 'create database utnianos_local_test;' -U postgres
   - composer self-update
-  - composer install --no-interaction
+  - COMPOSER_MEMORY_LIMIT=-1 travis_retry composer install --prefer-dist --no-interaction
   - php artisan key:generate
   - php artisan migrate
-  - php artisan jwt:secret
+  - php artisan jwt:secret -nf
 
 script:
   - composer run test-ci
