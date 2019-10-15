@@ -2,12 +2,20 @@
 
 namespace Tests\Api;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\ApiTestCase;
 use App\Models\User;
 
 class UserTest extends ApiTestCase
 {
-    public function testGetAll() {
+    use RefreshDatabase;
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->seed();
+    }
+    public function testGetAll()
+    {
         $jsonResponse = $this->actingAsAdmin()->json('GET', '/users');
 
         // Check status and structure
@@ -27,7 +35,8 @@ class UserTest extends ApiTestCase
             );
     }
 
-    public function testPost() {
+    public function testPost()
+    {
         $testUser = factory(User::class)->make()->getAttributes();
 
         $jsonResponse = $this->actingAsAdmin()->json('POST', '/users', $testUser);
